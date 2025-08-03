@@ -17,7 +17,7 @@ const APIAuthenticated = axios.create({
     headers:{
         "Content-Type":"application/json",            // if form,image use multipart/formData
         "Accept":"application/json",
-        "token":`${localStorage.getItem("token")}`
+        "Authorization":`Bearer ${localStorage.getItem("token")}`
     }
 })
 
