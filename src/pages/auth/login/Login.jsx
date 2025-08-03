@@ -59,7 +59,7 @@ const Login = () => {
         message:"Invalid email address"
       }
     })} id="email" type="email" name="email" className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-400 w-full py-2 focus:outline-none focus:border-blue-400" placeholder="E-Mail Address" />
-            {errors.email && <p className='text-red-500'> errors.email.message</p>}
+            {errors.email && <p className='text-red-500'> {errors.email.message}</p>}
           </div>
         </div>
         <div className="flex flex-col mb-6">
@@ -109,7 +109,7 @@ const Login = () => {
             <path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
           </svg>
         </span>
-        <span  className="ml-2">You don't have an account?</span>
+        <span  className="ml-2 text-sm">You don't have an account? <span className='ml-1'>Register</span> </span>
       </Link>
     </div>
   </div>

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { fetchSingleSelectedBookDetails } from "../../store/bookSlice";
 import { addToCartItems } from "../../store/cartSlice";
 import toast from "react-hot-toast";
@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 const BookDetails = () => {
   const { id: bookId } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const { data: user } = useSelector((state) => state.auth);
   const { selectedBookDetail } = useSelector((state) => state.book);
   const book = selectedBookDetail[0];
@@ -25,6 +26,7 @@ const BookDetails = () => {
           localStorage.getItem("token") == null ||
           localStorage.getItem("token") == undefined)
       ) {
+        toast.success("Login to add product to cart!")
         return navigate("/login");
       }
 
