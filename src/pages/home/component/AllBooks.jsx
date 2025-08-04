@@ -8,6 +8,8 @@ const AllBooks = () => {
   const navigate = useNavigate();
   const {id} = useParams()
   const { data: books,searchTerm } = useSelector((state) => state.book);
+  console.log(books);
+  
 
   const filteredSearchBooks = books?.filter((book)=>book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
   book.author.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -38,7 +40,7 @@ const AllBooks = () => {
                 <div className="flex-shrink-0">
                   <img
                     className="w-full h-75 object-cover"
-                    src={book?.bookImage} 
+                    src={book?.bookImage[0]} 
                     alt={book?.title || 'Book Cover'}
                   />
                 </div>

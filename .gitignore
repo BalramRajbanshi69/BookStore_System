@@ -33,3 +33,5 @@ dist-ssr
 .env.production
 node_modules/
 package-lock.json
+
+.vercel
