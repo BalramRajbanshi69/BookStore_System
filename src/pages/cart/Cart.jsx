@@ -7,6 +7,7 @@ const Cart = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const {items:books} = useSelector((state)=>state.cart)
+  
 
   //increase or decrease quantity
   const handleQuantityChange = (bookId,newQuantity)=>{
@@ -46,7 +47,7 @@ const Cart = () => {
         books && books?.map((book)=>{
           return (
             <div key={book?.book._id} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
-        <img src={book?.book.bookImage} alt="Product" className="w-20 h-20 object-cover rounded-md"/>
+        <img src={book?.book?.bookImage?.[0]} alt="Product" className="w-20 h-20 object-cover rounded-md"/>
         <div className="flex-1">
           <h3 className="font-semibold text-gray-900">{book?.book.title}</h3>
           <p className="text-sm text-gray-500">{book?.book.author}</p>

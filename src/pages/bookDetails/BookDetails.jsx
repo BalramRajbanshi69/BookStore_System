@@ -12,7 +12,6 @@ const BookDetails = () => {
   const { data: user } = useSelector((state) => state.auth);
   const { selectedBookDetail } = useSelector((state) => state.book);
   const book = selectedBookDetail[0];
-  console.log(book);
 
   useEffect(() => {
     dispatch(fetchSingleSelectedBookDetails(bookId));
@@ -48,8 +47,8 @@ const BookDetails = () => {
               alt="ecommerce"
               className="lg:w-1/2  w-full object-cover object-center rounded border border-gray-200"
               src={
-                book?.bookImage ||
-                "https://www.whitmorerarebooks.com/pictures/medium/2465.jpg"
+                book?.bookImage?.[0] ||
+                "https://images.unsplash.com/photo-1674296115670-8f0e92b1fddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
               }
             />
             <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0 flex flex-col gap-2">
