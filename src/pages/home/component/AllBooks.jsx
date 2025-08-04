@@ -18,7 +18,7 @@ const AllBooks = () => {
 
   useEffect(() => {
     dispatch(fetchAllBooks());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>
@@ -40,9 +40,15 @@ const AllBooks = () => {
                 <div className="flex-shrink-0">
                   <img
                     className="w-full h-75 object-cover"
-                    src={book?.bookImage[0]} 
-                    alt={book?.title || 'Book Cover'}
-                  />
+                        src={
+                          book.bookImage &&
+                          book.bookImage.length > 0
+                            ? book.bookImage[0]
+                            : "https://images.unsplash.com/photo-1674296115670-8f0e92b1fddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        } 
+                      alt={book.title || "book Image"}
+                    />
+
                 </div>
 
                 {/* Book Details */}
