@@ -7,7 +7,9 @@ const AllBooks = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
-  const { data: books, searchTerm } = useSelector((state) => state.book);
+  const { data:books, searchTerm } = useSelector((state) => state.book);
+  console.log("books",books);
+  
 
   const filteredSearchBooks = books?.filter(
     (book) =>
@@ -17,6 +19,8 @@ const AllBooks = () => {
   );
 
   useEffect(() => {
+    console.log("everyting ok!");
+    
     dispatch(fetchAllBooks());
   }, [dispatch]);
 
@@ -44,9 +48,9 @@ const AllBooks = () => {
                     <img
                       className="w-full h-75 object-cover"
                       src={
-                        Array.isArray(book?.bookImage) &&
+                        book?.bookImage &&
                         book.bookImage.length > 0
-                          ? book.bookImage[0] // Access the first image in the array
+                          ? book?.bookImage?.[0] // Access the first image in the array
                           : "https://images.unsplash.com/photo-1674296115670-8f0e92b1fddb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
                       }
                       alt={book.title || "book Image"}

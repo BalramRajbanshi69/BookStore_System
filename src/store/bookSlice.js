@@ -36,8 +36,9 @@ export function fetchAllBooks(data){
     return async function fetchAllBooksThunk(dispatch){
         dispatch(setStatus(STATUSES.LOADING));
         try {
+            console.log("before fetch");
             const response = await API.get("/books",data)
-            console.log("response",response.data);          
+             console.log("API response data:", response.data.data);
             dispatch(setBook(response.data.data))
             dispatch(setStatus(STATUSES.SUCCESS));
            
