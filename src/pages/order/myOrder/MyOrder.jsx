@@ -31,7 +31,7 @@ const MyOrder = () => {
     <div>
       {/* */}
       <div className="bg-gray-200 min-h-screen"> 
-        <div className="container mx-auto px-5 sm:px-5">
+        <div className="p-8 rounded-md w-full container mx-auto max-w-2xl px-4  lg:max-w-7xl lg:px-8">
           <div className="py-8">
             <div>
               <h2 className="text-2xl font-semibold leading-tight">My Orders</h2>
