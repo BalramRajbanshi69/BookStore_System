@@ -2,9 +2,9 @@
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import Loading from '../../global/loader/Loading'
 import { emptyCart } from '../../store/cartSlice'
 import { APIAuthenticated } from '../../http'
+import Loader from '../../global/loader/Loader'
 
 const KhaltiSuccess = () => {
   const dispatch = useDispatch()
@@ -34,11 +34,11 @@ const KhaltiSuccess = () => {
 
   if(loading){
     return (
-      <Loading status="Verifying"/>
+      <Loader status="Verifying"/>
     )
   }else{
     return (
-      <Loading status ="Verified"/>
+      <Loader status ="Verified"/>
     )
   }
 }

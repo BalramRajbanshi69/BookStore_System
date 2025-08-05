@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Loading = ({status}) => {
+const Loader = ({status}) => {
   return (
     <div>
         {/* <!-- component --> */}
@@ -15,4 +15,4 @@ const Loading = ({status}) => {
   )
 }
 
-export default Loading
+export default Loader
