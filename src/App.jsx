@@ -15,6 +15,7 @@ import Checkout from './pages/checkout/Checkout'
 import MyOrder from './pages/order/myOrder/MyOrder'
 import UserProfileOrder from './pages/order/navLinkOrder/UserProfileOrder'
 import OrderDetails from './pages/order/orderDetails/OrderDetails'
+import KhaltiSuccess from './pages/khalti/KhaltiSuccess'
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
         <Route path='/userprofile' element={<UserProfileOrder/>} />
         <Route path='/myOrder' element={<MyOrder/>} />
         <Route path='/myorder/:id' element={<OrderDetails/>} />
+        <Route path='/success' element={<KhaltiSuccess/>} />
       </Routes>
       <Footer/>
       </BrowserRouter>

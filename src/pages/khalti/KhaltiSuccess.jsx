@@ -1,10 +1,10 @@
 
-
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Loading from '../../global/loader/Loading'
 import { emptyCart } from '../../store/cartSlice'
+import { APIAuthenticated } from '../../http'
 
 const KhaltiSuccess = () => {
   const dispatch = useDispatch()

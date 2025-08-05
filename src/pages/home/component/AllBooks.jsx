@@ -7,9 +7,7 @@ const AllBooks = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
-  const { data:books, searchTerm } = useSelector((state) => state.book);
-  console.log("books",books);
-  
+  const { data:books, searchTerm } = useSelector((state) => state.book);  
 
   const filteredSearchBooks = books?.filter(
     (book) =>
@@ -28,14 +26,14 @@ const AllBooks = () => {
     <div>
       <section className="w-full bg-black dark:bg-[#0A2025] py-12 px-8">
         <div className="mx-auto max-w-7xl px-5">
-          <header className="h-12 mb-8 justify-between items-center flex">
+          <header className=" mb-2 justify-between items-center flex">
             <h2 className="text-white dark:text-white text-2xl font-bold font-['Roboto']">
               Shop by Books
             </h2>
           </header>
 
           {/* Grid container for books */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             {filteredSearchBooks &&
               filteredSearchBooks?.map((book) => (
                 <div

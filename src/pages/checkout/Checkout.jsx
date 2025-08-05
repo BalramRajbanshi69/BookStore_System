@@ -32,10 +32,6 @@ const Checkout = () => {
     }
     dispatch(createOrder(orderDetails))
     toast.success("Order placed successfully") 
-    setTimeout(() => {
-      dispatch(emptyCart())
-      navigate("/userprofile")
-    }, 1000); 
    }
 
 
