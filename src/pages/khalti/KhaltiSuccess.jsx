@@ -1,6 +1,5 @@
 
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { emptyCart } from '../../store/cartSlice'
 import { APIAuthenticated } from '../../http'
@@ -8,7 +7,6 @@ import Loader from '../../global/loader/Loader'
 
 const KhaltiSuccess = () => {
   const dispatch = useDispatch()
-  const navigate = useNavigate();
   const queryParams =new URLSearchParams(location.search)
   const pidx = queryParams.get("pidx")
   const [loading,setLoading] = useState(true)
