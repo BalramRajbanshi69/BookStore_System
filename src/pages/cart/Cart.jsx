@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { deleteCartItem, updateCartItem } from '../../store/cartSlice'
+import toast from 'react-hot-toast'
 
 const Cart = () => {
   const dispatch = useDispatch()
@@ -11,9 +12,9 @@ const Cart = () => {
 
   //increase or decrease quantity
   const handleQuantityChange = (bookId,newQuantity)=>{
-      // Ensure newQuantity doesn't go below 1
-    if (newQuantity >= 1) {
-      dispatch(updateCartItem(bookId, newQuantity))
+     if (newQuantity < 1) {
+      toast.error("Quantity cannot be less than 1");
+      return;
     }
     dispatch(updateCartItem(bookId,newQuantity)) 
   }
@@ -47,7 +48,7 @@ const Cart = () => {
         books && books?.map((book)=>{
           return (
             <div key={book?.book._id} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
-        <img src={book?.book?.bookImage?.[0]} alt="Product" className="w-20 h-20 object-cover rounded-md"/>
+        <img src={book?.book?.bookImage?.[0]} alt="book" className="w-20 h-20 object-cover rounded-md"/>
         <div className="flex-1">
           <h3 className="font-semibold text-gray-900">{book?.book.title}</h3>
           <p className="text-sm text-gray-500">{book?.book.author}</p>
@@ -59,11 +60,17 @@ const Cart = () => {
           </div>
           <div>
             {/* <span onClick={()=>handleQuantityChange(book?.book._id,book.quantity - 1)} className="cursor-pointer text-gray-500 hover:text-gray-700 text-2xl" > - </span> */}
-            <span onClick={() => {
+            {/* <span onClick={() => {
               if (book.quantity > 1) { // Only decrease if quantity is greater than 1
                 handleQuantityChange(book?.book._id, book.quantity - 1);
               }
-            }} className="cursor-pointer text-gray-500 hover:text-gray-700 text-2xl" > - </span>
+            }} className="cursor-pointer text-gray-500 hover:text-gray-700 text-2xl" > - </span> */}
+            <span onClick={()=>handleQuantityChange(book.book._id, book.quantity - 1)}  className={`cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 ${
+                            book.quantity <= 1
+                              ? "opacity-50 cursor-not-allowed"
+                              : "hover:bg-blue-500 hover:text-blue-50"
+                          }`}
+                          disabled={book.quantity <= 1}> - </span>
           <input onChange={(e)=>handleQuantityChange(book?.book._id,e.target.value)} className=" cursor-pointer w-8 text-center" type='number' value={book.quantity} min={1}/>
           <span onClick={()=>handleQuantityChange(book?.book._id,book.quantity + 1)} className=" cursor-pointer text-gray-500 hover:text-gray-700 text-2xl"> + </span>
           </div>

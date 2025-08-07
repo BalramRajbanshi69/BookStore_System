@@ -38,7 +38,7 @@ const Checkout = () => {
    const proceedForKhaltiPayment = ()=>{
     const currentOrder = data[data.length -1]
     if(status === STATUSES.SUCCESS && paymentMethod === "COD" ){
-       return;
+      return; 
         // return alert("Order placed successfully")
      }  
     if(status === STATUSES.SUCCESS && paymentMethod === "khalti" ){

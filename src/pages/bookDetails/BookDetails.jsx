@@ -13,6 +13,9 @@ const BookDetails = () => {
   const { selectedBookDetail } = useSelector((state) => state.book);
   const book = selectedBookDetail[0];
 
+
+  const {items} = useSelector((state)=>state.cart)
+
   useEffect(() => {
     dispatch(fetchSingleSelectedBookDetails(bookId));
   }, [bookId, dispatch]);
@@ -27,6 +30,14 @@ const BookDetails = () => {
       ) {
         toast.success("Login to add product to cart!")
         return navigate("/login");
+      }
+
+        // Check if the product is already in the cart
+      const isItemInCart = items?.some(item => item.book?._id === bookId);
+
+      if (isItemInCart) {
+        toast.error('Item is already in cart');
+        return;
       }
 
       dispatch(addToCartItems(bookId));

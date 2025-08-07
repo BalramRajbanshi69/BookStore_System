@@ -38,7 +38,7 @@ export function fetchAllBooks(data){
         try {
             console.log("before fetch");
             const response = await API.get("/books",data)
-             console.log("API response data:", response.data.data);
+            //  console.log("API response data:", response.data.data);
             dispatch(setBook(response.data.data))
             dispatch(setStatus(STATUSES.SUCCESS));
            
