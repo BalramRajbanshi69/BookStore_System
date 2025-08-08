@@ -195,7 +195,7 @@ const OrderDetails = () => {
                     Grand Total
                   </p>
                   <p className="text-base dark:text-gray-300 font-semibold leading-4 text-gray-600">
-                    Rs : {filteredOrder?.totalAmount}
+                    Rs : {filteredOrder?.totalAmount.toFixed(2)}
                   </p>
                 </div>
               </div>
