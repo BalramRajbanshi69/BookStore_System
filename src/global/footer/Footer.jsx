@@ -97,7 +97,7 @@ const Footer = () => {
   
   {/* <!-- Footer Bottom --> */}
   <div className="mt-16 pt-8 border-t border-gray-700 text-center opacity-70 text-sm">
-    <p>© 2024 Tab Creative Studio. All Rights Reserved. | Designed with <i className="fas fa-heart text-pink-600"></i> by Your Team</p>
+    <p>© 2025 Balram Rajbanshi. All Rights Reserved. | Designed with <i className="fas fa-heart text-pink-600"></i></p>
   </div>
 </footer>
     </div>

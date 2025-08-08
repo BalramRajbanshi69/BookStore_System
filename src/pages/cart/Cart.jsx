@@ -109,7 +109,7 @@ const Cart = () => {
         </div>
         <div className="flex justify-between text-base text-gray-900 mb-2">
           <p>totalAmount</p>
-          <p className="font-semibold"> Rs: {totalAmount}</p>
+          <p className="font-semibold"> Rs: {totalAmount.toFixed(2)}</p>
         </div>
         <div className="flex justify-between text-base text-gray-500 mb-4 border-b-1">
           <p>Shipping</p>
