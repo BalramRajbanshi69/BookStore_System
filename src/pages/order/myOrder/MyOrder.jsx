@@ -112,7 +112,17 @@ const MyOrder = () => {
                       <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <div className="flex items-center">
                           <div className="ml-3">
-                            <p onClick={()=>navigate(`/myorder/${order._id}`)} className="text-gray-900 whitespace-no-wrap font-bold hover:underline hover:cursor-pointer">{order?._id}</p>
+                            <p
+  className="py-2  border-gray-200  truncate cursor-pointer relative overflow-hidden group"
+  onClick={() => navigate(`/myorder/${order?._id}`)}
+>
+  <span className="relative inline-block font-semibold">
+    {order?._id}
+    <span 
+      className="absolute w-full bottom-[-2px] left-0 h-[1.5px] bg-gray-900 transform scale-x-0 transition-transform duration-500 ease-in-out  group-hover:scale-x-100"
+    ></span>
+  </span>
+</p>
                           </div>
                         </div>
                       </td>
