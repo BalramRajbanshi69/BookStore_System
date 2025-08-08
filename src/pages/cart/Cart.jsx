@@ -113,11 +113,11 @@ const Cart = () => {
         </div>
         <div className="flex justify-between text-base text-gray-500 mb-4 border-b-1">
           <p>Shipping</p>
-          <p> Rs: {Shipping}</p>
+          <p> Rs: {Shipping.toFixed(2)}</p>
         </div>
         <div className="flex justify-between text-lg font-bold text-gray-900 mb-6">
           <p>GrandTotal</p>
-          <p> Rs: {grandTotal}</p>
+          <p> Rs: {grandTotal.toFixed(2)}</p>
         </div>
         
         <button onClick={()=>navigate("/checkout")} className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 rounded-lg transition-colors">
